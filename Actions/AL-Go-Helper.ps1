@@ -272,7 +272,8 @@ function Expand-7zipArchive {
 #
 function GetBcContainerHelperPath([string] $bcContainerHelperVersion) {
     if ("$env:BcContainerHelperPath" -and (Test-Path -Path $env:BcContainerHelperPath -PathType Leaf)) {
-        return $env:BcContainerHelperPath
+        Write-Host "BcContainerHelperPath Cache hit, but ignore it."
+        # return $env:BcContainerHelperPath
     }
 
     if ($bcContainerHelperVersion -eq 'None') {
